@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>HTML5タグを使わない</title>
+<style>
+.footer {
+  color: red;
+  font-weight: bold;
+}
+</style>
+<script src="http://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+<script>
+  $(function () {
+  // jQuery
+  // <div class="header">
+  $(".header").css("color", "blue");
+  // <div class="nav">
+  $("<div>").addClass("nav").html("<ul><li>foo</li><li>bar</li></ul>").appendTo(".header");
+
+  // JavaScript
+  var elements = document.querySelectorAll(".article");
+  for (var i = 0; i < elements.length; i++) {
+    // <div class="article">
+    elements[i].style.color = "green";
+    elements[i].style.fontSize = "200%";
+    // <div class="section">
+    var new_elem = document.createElement("div");
+    new_elem.className = "section";
+    new_elem.innerHTML = "<h3>Section</h3>";
+    elements[i].appendChild(new_elem);
+  }
+});
+</script>
+</head>
+<body>
+<div class="header">
+  <h1>HTML5タグを使わない</h1>
+</div>
+<div class="article">
+  <h2>Article</h2>
+</div>
+<div class="footer">
+  Footer
+</div>
+</body>
+</html>
